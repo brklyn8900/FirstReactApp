@@ -24293,12 +24293,54 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
-	var Main = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/Main\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	var Home = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../components/Home\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var Main = __webpack_require__(209);
+	var Home = __webpack_require__(210);
 	var Router = __webpack_require__(159);
 	var Route = Router.Route;
 
 	module.exports = React.createElement(Route, { path: '/', component: Main });
+
+/***/ },
+/* 209 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var Main = React.createClass({
+	  displayName: 'Main',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'Hello World'
+	    );
+	  }
+	});
+
+	module.exports = Main;
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var React = __webpack_require__(1);
+
+	var Home = React.createClass({
+	  displayName: "Home",
+
+	  render: function render() {
+	    return React.createElement(
+	      "h2",
+	      { className: "text-center" },
+	      "Search Github Username Above"
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);
