@@ -24295,27 +24295,47 @@
 	var React = __webpack_require__(1);
 	var Main = __webpack_require__(209);
 	var Home = __webpack_require__(210);
+	var Profile = __webpack_require__(211);
 	var Router = __webpack_require__(159);
 	var Route = Router.Route;
+	var IndexRoute = Router.IndexRoute;
 
-	module.exports = React.createElement(Route, { path: '/', component: Main });
+	module.exports = React.createElement(
+	  Route,
+	  { path: '/', component: Main },
+	  React.createElement(Route, { path: 'profile/:username', component: Profile }),
+	  React.createElement(IndexRoute, { component: Home })
+	);
 
 /***/ },
 /* 209 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(1);
 
 	var Main = React.createClass({
-	  displayName: 'Main',
+	  displayName: "Main",
 
 	  render: function render() {
 	    return React.createElement(
-	      'div',
-	      null,
-	      'Hello World'
+	      "div",
+	      { className: "main-container" },
+	      React.createElement(
+	        "nav",
+	        { className: "navbar navbar-default", role: "navigation" },
+	        React.createElement(
+	          "div",
+	          { className: "col-sm-7 col-sm-offset-2", style: { marginTop: 15 } },
+	          "Menu"
+	        )
+	      ),
+	      React.createElement(
+	        "div",
+	        { className: "container" },
+	        this.props.children
+	      )
 	    );
 	  }
 	});
@@ -24341,6 +24361,53 @@
 	    );
 	  }
 	});
+
+	module.exports = Home;
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var Router = __webpack_require__(159);
+
+	var Profile = React.createClass({
+	  displayName: 'Profile',
+
+	  getInitialState: function getInitialState() {
+	    return {
+	      notes: [],
+	      bio: {},
+	      repos: []
+	    };
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'row' },
+	      React.createElement(
+	        'div',
+	        { className: 'col-md-4' },
+	        'User Profile Component --> ',
+	        this.props.params.username
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'col-md-4' },
+	        'Repos Component'
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'col-md-4' },
+	        'Notes Component'
+	      )
+	    );
+	  }
+	});
+
+	module.exports = Profile;
 
 /***/ }
 /******/ ]);
